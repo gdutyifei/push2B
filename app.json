@@ -1,5 +1,6 @@
 {
   "pages": [
+    "page/view/reportForm/reportForm",
     "page/view/index/index"
   ],
   "window": {
@@ -8,32 +9,6 @@
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   },
-  // "tabBar": {
-  //   "color": "#7E7E7E",
-  //   "selectedColor": "#09BB07",
-  //   "borderStyle": "#F7F7FA",
-  //   "list": [
-  //     {
-  //       "selectedIconPath": "/image/my-card-selected.png",
-  //       "iconPath": "/image/my-card-normal.png",
-  //       "pagePath": "page/view/myCard/myCard",
-  //       "text": "名片"
-  //     },
-  //     {
-  //       "selectedIconPath": "/image/my-product-selected.png",
-  //       "iconPath": "/image/my-product-normal.png",
-  //       "pagePath": "page/view/myProduct/myProduct",
-  //       "text": "产品"
-  //     },
-  //     {
-  //       "selectedIconPath": "/image/my-store-selected.png",
-  //       "iconPath": "/image/my-store-normal.png",
-  //       "pagePath": "page/view/myStore/myStore",
-  //       "text": "门店"
-  //     }
-     
-  //   ]
-  // },
   "networkTimeout": {
     "request": 10000,
     "connectSocket": 10000,
@@ -41,4 +16,6 @@
     "downloadFile": 10000
   },
   "debug": false
+ 
 }
+
