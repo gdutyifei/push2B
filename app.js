@@ -15,91 +15,91 @@ App({
     })
   },
   onLaunch: function () {
-    this.getUserInfo(function (e) {
+    // this.getUserInfo(function (e) {
 
-    }); 
-    var host = config.host;
-    var data = {};
-    data.pf = 4;
-    req.getRequest('https://uplus.xspace.gd.cn/jmsw-uplus/start/init', data, "GET", "application/json", function (res) {
-      console.log(res);
-      var data = res.data.data.upyun;
-      var bucketName = data.bucketName;
-      var imgDomain = data.domain;
-      self.globalData.bucketName = bucketName;
-      self.globalData.imgDomain = imgDomain + "/";
-      console.log(imgDomain);
-      // self.globalData.openid = openid;
-    });
-    console.log('App Launch')
+    // }); 
+    // var host = config.host;
+    // var data = {};
+    // data.pf = 4;
+    // req.getRequest('https://uplus.xspace.gd.cn/jmsw-uplus/start/init', data, "GET", "application/json", function (res) {
+    //   console.log(res);
+    //   var data = res.data.data.upyun;
+    //   var bucketName = data.bucketName;
+    //   var imgDomain = data.domain;
+    //   self.globalData.bucketName = bucketName;
+    //   self.globalData.imgDomain = imgDomain + "/";
+    //   console.log(imgDomain);
+    //   // self.globalData.openid = openid;
+    // });
+    // console.log('App Launch')
 
-    var self = this;
-    WebIM.conn.listen({
-      // 连接成功回调
-      onOpened: function(message) {
-        console.log("连接成功回调");
-        WebIM.conn.setPresence();
-      },
-      // 处理“广播”或“发布-订阅”消息，如联系人订阅请求、处理群组、聊天室被踢解散等消息
-      onPresence: function(message) {
-        
-      },
-      // 处理好友申请
-      onRoster: function(message) {
-        
-      },
-      // 收到文本消息
-      onTextMessage: function(message) {
-        var host = config.host;
-        var page = self.getRoomPage();
-        console.log("消息： " + message);
+    // var self = this;
+    // WebIM.conn.listen({
+    //   // 连接成功回调
+    //   onOpened: function(message) {
+    //     console.log("连接成功回调");
+    //     WebIM.conn.setPresence();
+    //   },
+    //   // 处理“广播”或“发布-订阅”消息，如联系人订阅请求、处理群组、聊天室被踢解散等消息
+    //   onPresence: function(message) {
 
-        if(message) {
-          if(page) {
-            page.receiveMsg(message, "txt");
-          } else {
-            var chatMsg = self.globalData.chatMsg || [];
-            var value = WebIM.parseEmoji(message.data.replace(/\n/mg, ''));
-            console.log(message.id);
-            var time = WebIM.time();
-            var msgData = {
-                from: message.from,
-                to: message.to,
-                data: value[0].data,
-              // msg: {
-              //   type: "txt",
-              //   data: value
-              // },
-              time: time,
-              mid: "WEBIM_" + message.id
-            }
-            req.getRequest(host + "/api/chat/saveChatInfo", msgData, "GET", "application/json", function (res) {
-              console.log(res);
-            });
-            // chatMsg = wx.getStorageSync(msgData.yourname + message.to) || [];
-            // chatMsg.push(msgData);
-          }
-        }
-      },
-      // 各种异常
-      onError: function (error) {
-        // 16: server-side close the websocket connection
-        if (error.type == WebIM.statusCode.WEBIM_CONNCTION_DISCONNECTED) {
-          if (WebIM.conn.autoReconnectNumTotal < WebIM.conn.autoReconnectNumMax) {
-            return;
-          }
+    //   },
+    //   // 处理好友申请
+    //   onRoster: function(message) {
 
-          wx.showToast({
-            title: 'server-side close the websocket connection',
-            duration: 1000
-          });
-          wx.redirectTo({
-            url: '../login/login'
-          });
-          return;
-        }
-      }
-    })
+    //   },
+    //   // 收到文本消息
+    //   onTextMessage: function(message) {
+    //     var host = config.host;
+    //     var page = self.getRoomPage();
+    //     console.log("消息： " + message);
+
+    //     if(message) {
+    //       if(page) {
+    //         page.receiveMsg(message, "txt");
+    //       } else {
+    //         var chatMsg = self.globalData.chatMsg || [];
+    //         var value = WebIM.parseEmoji(message.data.replace(/\n/mg, ''));
+    //         console.log(message.id);
+    //         var time = WebIM.time();
+    //         var msgData = {
+    //             from: message.from,
+    //             to: message.to,
+    //             data: value[0].data,
+    //           // msg: {
+    //           //   type: "txt",
+    //           //   data: value
+    //           // },
+    //           time: time,
+    //           mid: "WEBIM_" + message.id
+    //         }
+    //         req.getRequest(host + "/api/chat/saveChatInfo", msgData, "GET", "application/json", function (res) {
+    //           console.log(res);
+    //         });
+    //         // chatMsg = wx.getStorageSync(msgData.yourname + message.to) || [];
+    //         // chatMsg.push(msgData);
+    //       }
+    //     }
+    //   },
+    //   // 各种异常
+    //   onError: function (error) {
+    //     // 16: server-side close the websocket connection
+    //     if (error.type == WebIM.statusCode.WEBIM_CONNCTION_DISCONNECTED) {
+    //       if (WebIM.conn.autoReconnectNumTotal < WebIM.conn.autoReconnectNumMax) {
+    //         return;
+    //       }
+
+    //       wx.showToast({
+    //         title: 'server-side close the websocket connection',
+    //         duration: 1000
+    //       });
+    //       wx.redirectTo({
+    //         url: '../login/login'
+    //       });
+    //       return;
+    //     }
+    //   }
+    // })
   },
   onShow: function () {
     console.log('App Show')
@@ -128,11 +128,11 @@ App({
       }
     })
   },
-  getOpenid: function(callback) {
+  getOpenid: function (callback) {
     var self = this;
     var host = config.host;
     wx.login({
-      success: function(data) {
+      success: function (data) {
         var code = data.code;
         var requestData = {};
         requestData.code = code;
@@ -151,7 +151,7 @@ App({
   getUserInfo: function (callback) {
     var self = this;
     var host = config.host;
-    
+
     wx.login({
       success: function (data) {
         var code = data.code;

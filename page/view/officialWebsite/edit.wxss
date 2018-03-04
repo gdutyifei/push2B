@@ -35,13 +35,13 @@
   height: 112rpx;
 }
 
-.arrow{
+.arrow {
   border-style: solid;
-  border-color: #C7C7CC;
+  border-color: #c7c7cc;
   border-width: 2rpx 2rpx 0 0;
   width: 25rpx;
   height: 25rpx;
-  transform:rotate(45deg);
+  transform: rotate(45deg);
 }
 
 /*团队成员*/
@@ -114,58 +114,58 @@
   vertical-align: middle;
 }
 
-.add-user-input{
+.add-user-input {
   height: 90rpx;
   display: flex;
   align-items: center;
-  border-top: 1px solid #DBDFE7;
+  border-top: 1px solid #dbdfe7;
 }
 
-.add-user-input > input{
+.add-user-input > input {
   padding-left: 30rpx;
 }
 
-.add-user-btn{
+.add-user-btn {
   padding: 30rpx;
   text-align: center;
 }
 
-.add-user-btn > button{
+.add-user-btn > button {
   width: 360rpx;
   height: 70rpx;
-  background-color: #0D7EFB;
+  background-color: #0d7efb;
   color: #fff;
   line-height: 70rpx;
   font-size: 32rpx;
 }
 
 /**/
-.form-item{
+
+.form-item {
   display: flex;
   align-items: center;
   height: 88rpx;
   padding: 0 30rpx;
 }
 
-.form-item > input{
+.form-item > input {
   margin-left: 30rpx;
 }
 
-.form-item .arrow{
+.form-item .arrow {
   position: absolute;
   right: 30rpx;
-  
 }
 
-.address{
+.address {
   margin-top: 60rpx;
 }
 
-.submit-btn{
+.submit-btn {
   padding: 30rpx;
 }
 
-.submit-btn > button{
+.submit-btn > button {
   background-color: #404040;
   color: #fff;
 }
