@@ -4,7 +4,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    isTotal: true,
+    isYesterday: false,
+    isSeven: false,
+    isThiry: false
   },
 
   /**
@@ -61,5 +64,43 @@ Page({
    */
   onShareAppMessage: function () {
     
+  },
+  // 切换tab
+  switch: function(e) {
+    console.log(e);
+    var flag = e.target.dataset.flag;
+    if(flag == "total") {
+      this.setData({
+        isTotal: true,
+        isYesterday: false,
+        isSeven: false,
+        isThiry: false
+      })
+      return;
+    } else if (flag == "yesterday") {
+      this.setData({
+        isTotal: false,
+        isYesterday: true,
+        isSeven: false,
+        isThiry: false
+      })
+      return;
+    } else if(flag == "seven") {
+      this.setData({
+        isTotal: false,
+        isYesterday: false,
+        isSeven: true,
+        isThiry: false
+      })
+      return;
+    } else if(flag == "thiry") {
+      this.setData({
+        isTotal: false,
+        isYesterday: false,
+        isSeven: false,
+        isThiry: true
+      })
+      return;
+    }
   }
 })
