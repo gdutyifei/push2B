@@ -1,7 +1,7 @@
 {
   "pages": [
     "page/view/reportForm/reportForm",
-    "/page/view/officialWebsite/edit",
+    "page/view/officialWebsite/edit",
     "page/view/index/index"
   ],
   "window": {
