@@ -18,7 +18,8 @@ var config = {
     yAxisTitleWidth: 15,
     padding: 12,
     columePadding: 3,
-    fontSize: 10,
+    // 项目点字体
+    fontSize: 12,
     dataPointShape: ['diamond', 'circle', 'triangle', 'rect'],
     colors: ['#FF8B48', '#5CD3E0', '#FFCB0C', '#90ed7d', '#f15c80', '#8085e9'],
     pieChartLinePadding: 25,
@@ -285,6 +286,7 @@ function getDataRange(minData, maxData) {
 }
 
 function measureText(text) {
+    console.log("检查字体宽度");
     var fontSize = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 10;
 
     // wx canvas 未实现measureText方法, 此处自行实现
@@ -322,6 +324,7 @@ function dataCombine(series) {
 }
 
 function getSeriesDataItem(series, index) {
+    console.log("getSeriesDataItem");
     var data = [];
     series.forEach(function (item) {
         if (item.data[index] !== null && typeof item.data[index] !== 'undefinded') {
@@ -339,6 +342,7 @@ function getSeriesDataItem(series, index) {
 
 
 function getMaxTextListLength(list) {
+    console.log("getMaxTextListLength");
     var lengthList = list.map(function (item) {
         return measureText(item);
     });
@@ -346,6 +350,7 @@ function getMaxTextListLength(list) {
 }
 
 function getRadarCoordinateSeries(length) {
+    console.log("getRadarCoordinateSeries");
     var eachAngle = 2 * Math.PI / length;
     var CoordinateSeries = [];
     for (var i = 0; i < length; i++) {
@@ -358,6 +363,7 @@ function getRadarCoordinateSeries(length) {
 }
 
 function getToolTipData(seriesData, calPoints, index, categories) {
+    console.log("getToolTipData");
     var option = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : {};
 
     var textList = seriesData.map(function (item) {
@@ -386,6 +392,7 @@ function getToolTipData(seriesData, calPoints, index, categories) {
 }
 
 function findCurrentIndex(currentPoints, xAxisPoints, opts, config) {
+    console.log("findCurrentIndex");
     var offset = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 0;
 
     var currentIndex = -1;
@@ -401,10 +408,12 @@ function findCurrentIndex(currentPoints, xAxisPoints, opts, config) {
 }
 
 function isInExactChartArea(currentPoints, opts, config) {
+    console.log("isInExactChartArea");
     return currentPoints.x < opts.width - config.padding && currentPoints.x > config.padding + config.yAxisWidth + config.yAxisTitleWidth && currentPoints.y > config.padding && currentPoints.y < opts.height - config.legendHeight - config.xAxisHeight - config.padding;
 }
 
 function findRadarChartCurrentIndex(currentPoints, radarData, count) {
+    console.log("findRadarChartCurrentIndex");
     var eachAngleArea = 2 * Math.PI / count;
     var currentIndex = -1;
     if (isInExactPieChartArea(currentPoints, radarData.center, radarData.radius)) {
@@ -446,6 +455,7 @@ function findRadarChartCurrentIndex(currentPoints, radarData, count) {
 }
 
 function findPieChartCurrentIndex(currentPoints, pieData) {
+    console.log("findPieChartCurrentIndex");
     var currentIndex = -1;
     if (isInExactPieChartArea(currentPoints, pieData.center, pieData.radius)) {
         var angle = Math.atan2(pieData.center.y - currentPoints.y, currentPoints.x - pieData.center.x);
@@ -463,10 +473,12 @@ function findPieChartCurrentIndex(currentPoints, pieData) {
 }
 
 function isInExactPieChartArea(currentPoints, center, radius) {
+    console.log("isInExactPieChartArea");
     return Math.pow(currentPoints.x - center.x, 2) + Math.pow(currentPoints.y - center.y, 2) <= Math.pow(radius, 2);
 }
 
 function splitPoints(points) {
+    console.log("splitPoints");
     var newPoints = [];
     var items = [];
     points.forEach(function (item, index) {
@@ -487,6 +499,7 @@ function splitPoints(points) {
 }
 
 function calLegendData(series, opts, config) {
+    console.log("calLegendData");
     if (opts.legend === false) {
         return {
             legendList: [],
@@ -510,10 +523,10 @@ function calLegendData(series, opts, config) {
             currentRow.push(item);
         }
     });
+
     if (currentRow.length) {
         legendList.push(currentRow);
     }
-
     return {
         legendList: legendList,
         legendHeight: legendList.length * (config.fontSize + marginTop) + padding
@@ -574,6 +587,7 @@ function getRadarDataPoints(angleList, center, radius, series, opts) {
 }
 
 function getPieDataPoints(series) {
+    console.log("计算饼图百分比");
     var process = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
 
     var count = 0;
@@ -595,10 +609,12 @@ function getPieDataPoints(series) {
 }
 
 function getPieTextMaxLength(series) {
+    console.log("getPieTextMaxLength");
     series = getPieDataPoints(series);
     var maxLength = 0;
     series.forEach(function (item) {
         var text = item.format ? item.format(+item._proportion_.toFixed(2)) : util.toFixed(item._proportion_ * 100) + '%';
+        console.log(text);
         maxLength = Math.max(maxLength, measureText(text));
     });
 
@@ -627,6 +643,7 @@ function fixColumeData(points, eachSpacing, columnLen, index, config, opts) {
 }
 
 function getXAxisPoints(categories, opts, config) {
+  console.log("getXAxisPoints");
     var yAxisTotalWidth = config.yAxisWidth + config.yAxisTitleWidth;
     var spacingValid = opts.width - 2 * config.padding - yAxisTotalWidth;
     var dataCount = opts.enableScroll ? Math.min(5, categories.length) : categories.length;
@@ -1432,6 +1449,7 @@ function drawYAxis(series, opts, config, context) {
 }
 
 function drawLegend(series, opts, config, context) {
+    console.log("drawLegend");
     if (!opts.legend) {
         return;
     }
@@ -1444,19 +1462,21 @@ function drawLegend(series, opts, config, context) {
         legendList = _calLegendData.legendList;
 
     var padding = 5;
-    var marginTop = 8;
+    var marginTop = 15;
     var shapeWidth = 15;
     legendList.forEach(function (itemList, listIndex) {
+        console.log("循环画出最下面的项目点");
         var width = 0;
         itemList.forEach(function (item) {
             item.name = item.name || 'undefined';
             width += 3 * padding + measureText(item.name) + shapeWidth;
         });
-        var startX = (opts.width - width) / 2 + padding;
+        var startX = (opts.width - width) / 5 + padding;
         var startY = opts.height - config.padding - config.legendHeight + listIndex * (config.fontSize + marginTop) + padding + marginTop;
 
         context.setFontSize(config.fontSize);
         itemList.forEach(function (item) {
+            console.log("循环画点");
             switch (opts.type) {
                 case 'line':
                     context.beginPath();
@@ -1493,13 +1513,14 @@ function drawLegend(series, opts, config, context) {
                     context.closePath();
                     context.fill();
             }
+            
             startX += padding + shapeWidth;
             context.beginPath();
-            context.setFillStyle(opts.extra.legendTextColor || '#333333');
+            context.setFillStyle(opts.extra.legendTextColor || '#7E7E7E');
             context.fillText(item.name, startX, startY + 9);
             context.closePath();
             context.stroke();
-            startX += measureText(item.name) + 2 * padding;
+            startX += measureText(item.name) + 2 * padding + 20;
         });
     });
 }

@@ -112,7 +112,6 @@ Page({
 
   touchHandler: function (e) {
     // console.log(this.data.pieChart.getCurrentDataIndex(e));
-    console.log(this.data.pieChart);
   },
   onLoad: function (e) {
     var windowWidth = 320;
@@ -128,17 +127,17 @@ Page({
       canvasId: 'pieCanvas',
       type: 'pie',
       series: [{
-        name: '成交量1',
+        name: '对我感兴趣',
         data: 15,
       }, {
-        name: '成交量2',
+        name: '对产品感兴趣',
         data: 35,
       }, {
-        name: '成交量3',
+        name: '对公司感兴趣',
         data: 78,
       }],
       disablePieStroke: true,
-      width: windowWidth,
+      width: 345,
       height: 220,
       dataLabel: false,
     });

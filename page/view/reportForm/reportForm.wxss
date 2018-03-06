@@ -80,8 +80,8 @@
 }
 
 #pieCanvas {
-  height: 480rpx;
-  width: 480rpx;
+  height: 470rpx;
+  width: 690rpx;
 }
 
 .chart-header {
