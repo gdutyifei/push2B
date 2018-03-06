@@ -1,0 +1,71 @@
+<view class='page-head-title p30'>
+  <text>门店主页</text>
+</view>
+<view class='addImage auto'>
+  <image class='icon-add' src='./images/add2@2x.png'></image>
+</view>
+<view class='page-head-title p30'>
+  <text>团队成员</text>
+</view>
+<view class='user-list border'>
+  <view class='user-item'>
+    <image src='./images/user.jpg'></image>
+    <view class='user-info'>
+      <text class='user-name'>韩雅</text>
+      <text class='user-desc'>五星级销售经理</text>
+    </view>
+  </view>
+  <view class='user-item'>
+    <image src='./images/user.jpg'></image>
+    <view class='user-info'>
+      <text class='user-name'>韩雅</text>
+      <text class='user-desc'>五星级销售经理</text>
+    </view>
+  </view>
+  <view class='user-item'>
+    <image src='./images/user.jpg'></image>
+    <view class='user-info'>
+      <text class='user-name'>韩雅</text>
+      <text class='user-desc'>五星级销售经理</text>
+    </view>
+  </view>
+  <view class='user-item'>
+    <image src='./images/user.jpg'></image>
+    <view class='user-info'>
+      <text class='user-name'>韩雅</text>
+      <text class='user-desc'>五星级销售经理</text>
+    </view>
+  </view>
+</view>
+<view class='bg-white pl-30 mt-20 add-user-cnt'>
+  <view class=''>
+    <text>店员照片</text>
+  </view>
+  <view class='add-user-image'>
+    <image class='icon-add' src='./images/add2@2x.png'></image>
+  </view>
+  <view class='add-user-input'>
+   <text>店员姓名</text>
+   <input type='text' placeholder='输入姓名'/>
+  </view>
+  <view class='add-user-input'>
+   <text>店员职位</text>
+   <input type='text' placeholder='输入职位'/>
+  </view>
+</view>
+<view class='add-user-btn'>
+  <button>添加成员</button>
+</view>
+<view class='form-item bg-white'>
+  <text>公司电话</text>
+  <input/>
+</view>
+
+<view class='form-item bg-white address'>
+  <text>添加地址</text>
+  <view class='arrow'></view>
+</view>
+
+<view class='submit-btn'>
+  <button>保存内容</button>
+</view>

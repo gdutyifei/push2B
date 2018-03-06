@@ -42,11 +42,11 @@ App({
     //   },
     //   // 处理“广播”或“发布-订阅”消息，如联系人订阅请求、处理群组、聊天室被踢解散等消息
     //   onPresence: function(message) {
-        
+
     //   },
     //   // 处理好友申请
     //   onRoster: function(message) {
-        
+
     //   },
     //   // 收到文本消息
     //   onTextMessage: function(message) {
@@ -128,11 +128,11 @@ App({
       }
     })
   },
-  getOpenid: function(callback) {
+  getOpenid: function (callback) {
     var self = this;
     var host = config.host;
     wx.login({
-      success: function(data) {
+      success: function (data) {
         var code = data.code;
         var requestData = {};
         requestData.code = code;
@@ -151,7 +151,7 @@ App({
   getUserInfo: function (callback) {
     var self = this;
     var host = config.host;
-    
+
     wx.login({
       success: function (data) {
         var code = data.code;

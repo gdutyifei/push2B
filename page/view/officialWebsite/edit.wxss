@@ -1,0 +1,171 @@
+/* page/view/OfficialWebsite/edit.wxss */
+
+.p30 {
+  padding-top: 30rpx;
+}
+
+.pl-30 {
+  padding-left: 30rpx;
+}
+
+.auto {
+  margin: 0 30rpx;
+}
+
+.mt-20 {
+  margin-top: 20rpx;
+}
+
+.bg-white {
+  background-color: #fbfbff;
+}
+
+.addImage {
+  width: 319rpx;
+  height: 425rpx;
+  background-color: #fbfbff;
+  border: 1px solid #bfbfbf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addImage .icon-add {
+  width: 111rpx;
+  height: 112rpx;
+}
+
+.arrow {
+  border-style: solid;
+  border-color: #c7c7cc;
+  border-width: 2rpx 2rpx 0 0;
+  width: 25rpx;
+  height: 25rpx;
+  transform: rotate(45deg);
+}
+
+/*团队成员*/
+
+.user-list {
+  background-color: #fbfbff;
+  display: flex;
+  padding: 30rpx 30rpx 0 30rpx;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border: 1px solid #dbdfe7;
+}
+
+.user-item {
+  margin-bottom: 30rpx;
+  position: relative;
+}
+
+.user-item image {
+  width: 330rpx;
+  height: 441rpx;
+  vertical-align: middle;
+}
+
+.user-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+}
+
+.user-info .user-name, .user-info .user-desc {
+  margin-left: 30rpx;
+  display: block;
+}
+
+.user-name {
+  font-size: 34rpx;
+  height: 48rpx;
+  margin-top: 20rpx;
+  margin-bottom: 10rpx;
+}
+
+.user-desc {
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+}
+
+/*添加店员*/
+
+.add-user-cnt {
+  padding-top: 20rpx;
+}
+
+.add-user-image {
+  width: 157.5rpx;
+  height: 157.5rpx;
+  border: 1px solid #7e7e7e;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20rpx 0;
+}
+
+.add-user-image > image {
+  width: 55rpx;
+  height: 55rpx;
+  vertical-align: middle;
+}
+
+.add-user-input {
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #dbdfe7;
+}
+
+.add-user-input > input {
+  padding-left: 30rpx;
+}
+
+.add-user-btn {
+  padding: 30rpx;
+  text-align: center;
+}
+
+.add-user-btn > button {
+  width: 360rpx;
+  height: 70rpx;
+  background-color: #0d7efb;
+  color: #fff;
+  line-height: 70rpx;
+  font-size: 32rpx;
+}
+
+/**/
+
+.form-item {
+  display: flex;
+  align-items: center;
+  height: 88rpx;
+  padding: 0 30rpx;
+}
+
+.form-item > input {
+  margin-left: 30rpx;
+}
+
+.form-item .arrow {
+  position: absolute;
+  right: 30rpx;
+}
+
+.address {
+  margin-top: 60rpx;
+}
+
+.submit-btn {
+  padding: 30rpx;
+}
+
+.submit-btn > button {
+  background-color: #404040;
+  color: #fff;
+}
