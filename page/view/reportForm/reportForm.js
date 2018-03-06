@@ -1,3 +1,4 @@
+const wxCharts = require('../../../util/wxcharts.js')
 Page({
 
   /**
@@ -7,7 +8,9 @@ Page({
     isTotal: true,
     isYesterday: false,
     isSeven: false,
-    isThiry: false
+    isThiry: false,
+
+    pieChart: ""
   },
 
   /**
@@ -102,5 +105,43 @@ Page({
       })
       return;
     }
+  },
+
+
+  touchHandler: function (e) {
+    // console.log(this.data.pieChart.getCurrentDataIndex(e));
+    console.log(this.data.pieChart);
+  },
+  onLoad: function (e) {
+    var windowWidth = 320;
+    try {
+      var res = wx.getSystemInfoSync();
+      windowWidth = res.windowWidth;
+    } catch (e) {
+      console.error('getSystemInfoSync failed!');
+    }
+
+    var pieChart = new wxCharts({
+      animation: true,
+      canvasId: 'pieCanvas',
+      type: 'pie',
+      series: [{
+        name: '成交量1',
+        data: 15,
+      }, {
+        name: '成交量2',
+        data: 35,
+      }, {
+        name: '成交量3',
+        data: 78,
+      }],
+      disablePieStroke: true,
+      width: windowWidth,
+      height: 220,
+      dataLabel: false,
+    });
+    this.setData({
+      pieChart: pieChart
+    })
   }
 })

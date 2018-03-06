@@ -68,3 +68,26 @@
   color: #202A34;
   letter-spacing: 0;
 }
+
+.pie {
+  background: #FBFBFF;
+  border: 1px solid #DBDFE7;
+  border-radius: 4px;
+  width: 90%;
+  height: 540rpx;
+  margin: 30rpx auto;
+}
+
+#pieCanvas {
+  height: 480rpx;
+  width: 480rpx;
+}
+
+.chart-header {
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #404040;
+  letter-spacing: 0;
+  text-align: center;
+  margin-top: 28rpx;
+}
