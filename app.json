@@ -1,7 +1,9 @@
 {
   "pages": [
+    "page/view/membership/membership",
+    "page/view/userAgreement/index",
     "page/view/reportForm/reportForm",
-    "/page/view/officialWebsite/edit",
+    "page/view/officialWebsite/edit",
     "page/view/index/index"
   ],
   "window": {
@@ -17,6 +19,4 @@
     "downloadFile": 10000
   },
   "debug": false
- 
 }
-

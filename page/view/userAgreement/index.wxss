@@ -1,0 +1,19 @@
+.pl30{
+  padding-left: 30rpx;
+}
+
+.title{
+  padding: 30rpx ;
+}
+
+.title-txt{
+  font-size: 37rpx;
+  color: #404040;
+}
+
+.title-desc{
+  font-size: 28rpx;
+  color: #7E7E7E;
+  padding: 10rpx 0;
+  display: inline-block;
+}

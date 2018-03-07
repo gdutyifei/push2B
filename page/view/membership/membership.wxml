@@ -1,0 +1,27 @@
+<view class='title'>
+  <text class='title-txt'>成为营家会员</text>
+</view>
+<view class='product-list'>
+  <view class='product-item' wx:for="{{packages}}">
+    <text class='product-price'>{{item.price}}/{{item.unit}}</text>
+    <text class='product-desc'>{{item.tip}}</text>
+  </view>
+</view>
+<view class='tip'>
+  <text class='tip-txt'>手动变自动传播，开启您的移动互联智能销售时代</text>
+</view>
+<view class='footer'>
+  <view>
+    <text class='price'>价格:<text class='price-num'>1</text>元</text>
+  </view>
+  <view>
+    <text class='user-desc'>用户协议</text>
+  </view>
+  <view class='agree'>
+    <checkbox class='check'/>
+    <text class='agree-desc'>已阅读并同意以上相关条款</text>
+  </view>
+  <view class=''>
+    <button class='submit'>确认支付</button>
+  </view>
+</view>
