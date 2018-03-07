@@ -1,2 +1,60 @@
-<!--page/view/reportForm/reportForm.wxml-->
-<text>page/view/reportForm/reportForm.wxml</text>
+<view class="header">
+  <view class='item {{isTotal? "selected": ""}}' data-flag="total" bindtap='switch'>汇总</view>
+  <view class='item {{isYesterday? "selected": ""}}' data-flag="yesterday" bindtap='switch'>昨天</view>
+  <view class='item {{isSeven? "selected": ""}}' data-flag="seven" bindtap='switch'>近7天</view>
+  <view class='item {{isThiry? "selected": ""}}' data-flag="thiry" bindtap='switch'>近30天</view>
+</view>
+<view class='total' wx-if="{{isTotal}}">
+  <view class='digital-content'>
+    <view class='digital'>
+      <view class='table'>
+        <view class='inline-table'>
+          <view class='table-title'>总客户数</view>
+          <view class='table-data'>1009</view>
+        </view>
+      </view>
+      <view class='table'>
+        <view class='inline-table'>
+          <view class='table-title'>跟进客户数</view>
+          <view class='table-data'>1009</view>
+        </view>
+      </view>
+      <view class='table'>
+        <view class='inline-table'>
+          <view class='table-title'>浏览次数</view>
+          <view class='table-data'>5003</view>
+        </view>
+      </view>
+    </view>
+    <view class='digital'>
+      <view class='table'>
+        <view class='inline-table'>
+          <view class='table-title'>被转发次数</view>
+          <view class='table-data'>5003</view>
+        </view>
+      </view>
+
+      <view class='table'>
+        <view class='inline-table'>
+          <view class='table-title'>被保存次数</view>
+          <view class='table-data'>5003</view>
+        </view>
+      </view>
+
+      <view class='table'>
+        <view class='inline-table'>
+          <view class='table-title'>被点赞次数</view>
+          <view class='table-data'>5003</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='pie'>
+    <view class='chart-header'>客户关注度</view>
+    <canvas canvas-id="pieCanvas" class="canvas"  id="pieCanvas" bindtouchstart="touchHandler"></canvas>
+  </view>
+</view>
+<view class='yesterday' wx-if="{{isYesterday}}"></view>
+<view class='seven' wx-if="{{isSeven}}"></view>
+<view class='thiry' wx-if="{{isThiry}}"></view>

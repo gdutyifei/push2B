@@ -1,9 +1,17 @@
+const wxCharts = require('../../../util/wxcharts.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+
+    isTotal: true,
+    isYesterday: false,
+    isSeven: false,
+    isThiry: false,
+
+    pieChart: ""
 
   },
 
@@ -60,6 +68,81 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    
+  },
+  // 切换tab
+  switch: function(e) {
+    console.log(e);
+    var flag = e.target.dataset.flag;
+    if(flag == "total") {
+      this.setData({
+        isTotal: true,
+        isYesterday: false,
+        isSeven: false,
+        isThiry: false
+      })
+      return;
+    } else if (flag == "yesterday") {
+      this.setData({
+        isTotal: false,
+        isYesterday: true,
+        isSeven: false,
+        isThiry: false
+      })
+      return;
+    } else if(flag == "seven") {
+      this.setData({
+        isTotal: false,
+        isYesterday: false,
+        isSeven: true,
+        isThiry: false
+      })
+      return;
+    } else if(flag == "thiry") {
+      this.setData({
+        isTotal: false,
+        isYesterday: false,
+        isSeven: false,
+        isThiry: true
+      })
+      return;
+    }
+  },
 
+
+  touchHandler: function (e) {
+    // console.log(this.data.pieChart.getCurrentDataIndex(e));
+  },
+  onLoad: function (e) {
+    var windowWidth = 320;
+    try {
+      var res = wx.getSystemInfoSync();
+      windowWidth = res.windowWidth;
+    } catch (e) {
+      console.error('getSystemInfoSync failed!');
+    }
+
+    var pieChart = new wxCharts({
+      animation: true,
+      canvasId: 'pieCanvas',
+      type: 'pie',
+      series: [{
+        name: '对我感兴趣',
+        data: 15,
+      }, {
+        name: '对产品感兴趣',
+        data: 35,
+      }, {
+        name: '对公司感兴趣',
+        data: 78,
+      }],
+      disablePieStroke: true,
+      width: 345,
+      height: 220,
+      dataLabel: false,
+    });
+    this.setData({
+      pieChart: pieChart
+    })
   }
 })
